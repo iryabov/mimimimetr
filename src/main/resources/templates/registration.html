@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<title>Быстрая регистрация</title>
+<link rel="shortcut icon" type="image/png" th:href="@{/image/mimimetr-logo.png}">
+
+<link th:href="@{/css/header.css}" rel="stylesheet" />
+<link th:href="@{/css/registration.css}" rel="stylesheet" />
+</head>
+<body>
+  <div id="page">
+    <div id="header">
+      <div id="header-container">
+        <div id="header-img">
+          <img alt="Тут картинка" th:src="@{/image/mimimetr-logo.png}" height="64" width="64">
+        </div>
+        <div id="header-text">Мимимиметр</div>
+      </div>
+
+    </div>
+    <div id="reg-header">Регистрация</div>
+    <div id="reg-form">
+      <form th:action="@{/registration}" th:object="${newUser}" method="post">
+        <div id="login">
+          Логин <br><input type="text" name="username">
+        </div>
+        <div class="error-message" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">error message</div>
+        <div id="password">
+          Пароль <br><input type="password" name="password">
+        </div>
+        <div style="display: none;">
+          <label><input type="text" name="authority" value="ROLE_USER"></label>
+        </div>
+        <div style="display: none;">
+          <label><input type="text" name="active" value="true"></label>
+        </div>
+        <div id="sign-in-btn">
+          <input type="submit" value="Отправить">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

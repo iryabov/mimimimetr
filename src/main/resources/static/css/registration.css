@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+#reg-form {
+ width: 300px;
+ height: 100%;
+ margin: 0 auto;
+ border: 2px solid #555;
+ border-radius: 5px;
+}
+
+.error-message {
+ font-size: 12px;
+ font-style: oblique;
+ font-weight: bold;
+ color: #AF6262;
+ margin-left: 10px;
+}
+
+#login, #password {
+ margin-left: 10px;
+ margin-top: 10px;
+ font-weight: bold;
+ font-style: italic;
+}
+
+#reg-header {
+ text-align: center;
+ color: #CE921B;
+ font-weight: bold;
+ font-style: italic;
+ font-size: 24px;
+ font-family: Lobster;
+}
+
+#password {
+ margin-bottom: 10px;
+}
+
+#login input, #password input {
+ height: 20px;
+ width: 150px;
+}
+
+#login input:hover, #login input:focus, 
+#password input:hover, #password input:focus {
+ box-shadow: #CE921B 0px 2px 5px -1px, #CE921B 0px 1px 3px -1px;
+}
+
+#sign-in-btn {
+ text-align: center;
+}
+
+#sign-in-btn input {
+ width: 100px;
+ padding: 8px;
+ margin-bottom: 5px;
+ border-radius: 5px;
+}
+
+#sign-in-btn input:hover {
+ color: #CE921B;
+ border-color: #CE921B;
+ border-radius: 5px;
+}
