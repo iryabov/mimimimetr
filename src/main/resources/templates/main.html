@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<title>Главная</title>
+<link rel="shortcut icon" type="image/png" th:href="@{/image/mimimetr-logo.png}">
+
+<link th:href="@{/css/header.css}" rel="stylesheet" />
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+  <div id="page">
+    <div id="header">
+      <div id="header-container">
+        <div id="header-img">
+          <img alt="Тут картинка" th:src="@{/image/mimimetr-logo.png}" height="64" width="64">
+        </div>
+        <div id="header-text">Мимимиметр</div>
+      </div>
+
+    </div>
+    <div id="exit">
+      <a th:href="@{/mimimimetr/top}">Узнать результат сейчас!&nbsp;&nbsp;</a>
+      <div class="username" sec:authentication="name"></div>
+      <a th:href="@{/logout}">Выйти</a>
+    </div>
+    <div id="content">
+      <div id="vote-content">
+        <div id="content-header">Кто из них мимимишнее? Кликни по фотографии!</div>
+        <div id="votes-done" style="display: none;">
+          Вы проголосовали за все пары котиков!
+        </div>
+
+        <div th:id="${catCouples.id}" class="content-body" th:each="catCouples : ${catCouples}" style="display: none;">
+          <div id="first-cat">
+            <div id="first-cat-img">
+              <img alt="" th:src="${catCouples.firstCat.srcLocation}" height="250" width="350"
+                th:attr="onclick=|sendRequest('${catCouples.firstCat.id}', '${catCouples.id}')|">
+            </div>
+            <div id="first-cat-name" th:text="${catCouples.firstCat.name}"></div>
+          </div>
+
+          <div id="second-cat">
+            <div id="second-cat-img">
+              <img alt="" th:src="${catCouples.secondCat.srcLocation}" height="250" width="350"
+                th:attr="onclick=|sendRequest('${catCouples.secondCat.id}', '${catCouples.id}')|">
+            </div>
+            <div id="second-cat-name" th:text="${catCouples.secondCat.name}"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script th:src=@{/js/main.js}></script>
+
+</body>
+</html>
