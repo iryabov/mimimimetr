@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+@font-face {
+ font-family: "Lobster";
+ src: url('../font/Lobster-Regular.ttf') format("truetype");
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ font-family: Lobster;
+}
+
+#page {
+ width: 800px;
+ height: 100%;
+ margin: auto;
+}
+
+#header {
+ color: #fff;
+ width: 600px;
+ height: 64px;
+ margin: auto;
+ margin-bottom: 20px;
+}
+
+#header-container {
+ width: 250px;
+ margin: auto;
+ display: flex;
+}
+
+#header-text {
+ padding-top: 24px;
+ font-size: 28px;
+ color: #555;
+ font-weight: bold;
+ font-family: Lobster;
+}
