@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<title>Логин</title>
+<link rel="shortcut icon" type="image/png" th:href="@{/image/mimimetr-logo.png}">
+
+<link th:href="@{/css/header.css}" rel="stylesheet" />
+<link th:href="@{/css/login.css}" rel="stylesheet" />
+</head>
+<body>
+  <div id="page">
+
+    <div id="header">
+      <div id="header-container">
+        <div id="header-img">
+          <img alt="Тут картинка" th:src="@{/image/mimimetr-logo.png}" height="64" width="64">
+        </div>
+        <div id="header-text">Мимимиметр</div>
+      </div>
+
+    </div>
+
+    <div id="login-form" sec:authorize="isAnonymous()">
+      <div class="alert-danger" th:if="${param.error}">Не правильный логин или пароль.</div>
+      <div class="alert-info" th:if="${param.logout}">Вы вышли из системы.</div>
+      <div class="fast-reg">
+        <a th:href="@{/registration}">Быстрая регистрация &#10095;</a>
+      </div>
+      <div>
+        <form th:action="@{/login}" method="post">
+          <div id="login">
+            Логин<br> <input type="text" name="username">
+          </div>
+          <div id="password">
+            Пароль<br> <input type="password" name="password">
+          </div>
+          <div id="sign-in-btn">
+            <input type="submit" value="Войти">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="greetings" sec:authorize="isAuthenticated()">Добро пожаловать <span sec:authentication="name"></span>! > <a th:href="@{/mimimimetr}">Перейти на главную</a></div>
+  </div>
+
+</body>
+</html>
